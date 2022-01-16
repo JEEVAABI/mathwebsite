@@ -1,41 +1,3 @@
-# Web Page for Mathematical Calculations
-
-## AIM:
-
-To design a static website with validation to perform mathematical calculations in client side.
-
-## DESIGN STEPS:
-
-### Step 1:
-
-Requirement collection.
-
-### Step 2:
-
-Creating the layout using HTML and CSS.
-
-### Step 3:
-
-Write javascript to perform the calculations.
-
-### Step 4:
-
-Include regularexpression based input validation.
-
-### Step 5:
-
-Validate the layout in various browsers.
-
-### Step 6:
-
-Validate the HTML code.
-
-### Step 6:
-
-Publish the website in the given URL.
-
-## PROGRAM :
-```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,6 +82,36 @@ Publish the website in the given URL.
                   </form>
         </div>
         <script type="text/javascript">
+            document.querySelector("#calbutton").addEventListener("click",function(){
+                var volumefield;
+                var radedit,reg,res;
+                volumefield=document.querySelector("#radedit");
+                radedit=volumefield.value;
+                reg= new RegExp("^[1-9]+[0-9]*$");
+                res= radedit.match(reg);
+                if (res==null)
+                {
+                    alert("please enter correct value for radius.");
+                }
+                else{
+                    alert("correct")
+                }
+                var volumefield2;
+                var htedit,reg2,res2;
+                volumefield2=document.querySelector("#htedit");
+                htedit=volumefield2.value;
+                reg2= new RegExp("^[1-9]+[0-9]*$");
+                res2= htedit.match(reg2);
+                if(reg2==null)
+                {
+                    alert("please enter correct value for height.")
+                }
+                else{
+                    alert("correct")
+                }
+            });
+        </script>
+        <script type="text/javascript">
             var button;
             button=document.querySelector("#calbutton");
             button.addEventListener("click",function(){
@@ -128,14 +120,6 @@ Publish the website in the given URL.
                 radtext=document.querySelector("#radedit");
                 httext=document.querySelector("#htedit");
                 volumetext=document.querySelector("#volumeedit");
-                if (Number(radtext.value)&& Number(httext.value)) {
-                    radval= parseInt(radtext.value);
-                    htval= parseInt(httext.value);
-                }
-                else{
-                    alert("The number entered is incorrect, which is only to be positive numeric values..!!...")
-
-                }
 
                 radval=parseInt(radtext.value);
                 htval=parseInt(httext.value);
@@ -143,7 +127,6 @@ Publish the website in the given URL.
                 volumetext.value=volumeval;
             });
         </script>
-
         
         <div class="content2">
             <h1>VOLUME OF CONE</h1>
@@ -168,7 +151,36 @@ Publish the website in the given URL.
                 </div><br>
             </form>
         </div>
-        
+        <script type="text/javascript">
+            document.querySelector("#calbutton1").addEventListener("click",function(){
+                var Volumefield;
+                var radiusedit,reg,res;
+                Volumefield=document.querySelector("#radiusedit");
+                radiusedit=Volumefield.value;
+                reg= new RegExp("^[1-9]+[0-9]*$");
+                res= radiusedit.match(reg);
+                if(res==null)
+                {
+                    alert("please enter correct value for radius.");
+                }
+                else{
+                    alert("correct")
+                }
+                var Volumefield2;
+                var heightedit,reg,res;
+                Volumefield2=document.querySelector("#heightedit");
+                heightedit=Volumefield2.value;
+                reg= new RegExp("^[1-9]+[0-9]*$");
+                res= heightedit.match(reg);
+                if(reg==null)
+                {
+                    alert("please enter correct value for height.")
+                }
+                else{
+                    alert("correct")
+                }
+            });
+        </script>
         <script type="text/javascript">
             var button;
             button=document.querySelector("#calbutton1");
@@ -178,14 +190,6 @@ Publish the website in the given URL.
                 radiustext=document.querySelector("#radiusedit");
                 heighttext=document.querySelector("#heightedit");
                 voltext=document.querySelector("#voledit");
-                if (Number(radiustext.value)&& Number(heighttext.value)) {
-                    radval= parseInt(radiustext.value);
-                    htval= parseInt(heighttext.value);
-                }
-                else{
-                    alert("The number entered is incorrect, which is only to be positive numeric values..!!...")
-
-                }
 
                 radiusval=parseInt(radiustext.value);
                 heightval=parseInt(heighttext.value);
@@ -198,15 +202,38 @@ Publish the website in the given URL.
     
 </body>
 </html>
-```
 
-## OUTPUT:
-### Page Outcome:
-![output](output1.png)
 
-### Page showing alert message to user:
-![output](error.png)
 
-## Result:
 
-Thus a website is designed to perform mathematical calculations in the client side.
+
+
+<script type="text/javascript">
+    var button;
+    button = document.querySelector("#calbutton");
+    button.addEventListener("click", function () {
+      var atext, btext, ctext;
+      var aval, bval, cval;
+      let text1
+      atext = document.querySelector("#radedit");
+      btext = document.querySelector("#htedit");
+      ctext = document.querySelector("#volumeedit");
+  
+      if (Number(atext.value) && Number(btext.value)) {
+        aval = parseInt(atext.value);
+        bval = parseInt(btext.value);
+        text1 = "The Answer Is Generated Successfully!!!";
+  
+      }
+      else {
+        window.alert("The Number You Entered Is `Invalid Format` / `Empty` Try Using Values Containing Postitive Integers. Click Reset And Try Again!!!");
+        text1 = "Error or Invalid Format!!!";
+      }
+  
+      cval = 3.14 * aval * aval * bval;
+      ctext.value = "" + cval;
+  
+      document.getElementById("stats1").innerHTML = text1;
+  
+    });
+  </script>
